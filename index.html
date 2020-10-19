@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 800px;
+            overflow: auto;
+        }
+        img {
+            width: 400px;
+            height: 400px;
+
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="box">
+            <li v-for='img in imgs' :key='img' >
+                <img v-lazy='img'>
+            </li>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./lazyload.js"></script>
+    <script>
+        const loading = 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603029728883&di=c2134ed9eaa22cf1744e466fb420c7f7&imgtype=0&src=http%3A%2F%2Fwww.peteduffy.co.uk%2Fwp-content%2Fuploads%2F2018%2F04%2Fwebsite-loads-slowly.gif';
+        Vue.use(VueLazyLoad,{
+            preload:1.3,
+            loading,
+        });
+        let vm = new Vue({
+            el:'#app',
+            data(){
+                return {
+                imgs:[
+                    'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603029382478&di=6beba03e7f6d67f7014b91d2a600ec5c&imgtype=0&src=http%3A%2F%2Fb.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F37d12f2eb9389b50ce7fd7718435e5dde7116e14.jpg',
+                   'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603029382478&di=751c943b89c30c0f71433f8e5e9ef1f3&imgtype=0&src=http%3A%2F%2Fcdn.duitang.com%2Fuploads%2Fitem%2F201311%2F28%2F20131128064249_X4tVQ.jpeg',
+                   'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603029382477&di=80a20d4d7612ecb9869ad5c4c30d8046&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F8644ebf81a4c510f973523a36b59252dd52aa592.jpg',
+                   'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603029382477&di=e5b662d087cec99588956ee6196c8e6a&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fe824b899a9014c08061cab3c0a7b02087bf4f400.jpg',
+                   'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603029382477&di=d08b9877cf38ec294175cd153d788814&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fwallpaper%2F1306%2F17%2Fc1%2F22199754_1371460645988.jpg',
+                   'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603029382476&di=8a34f0ad679cacde26e0e7b055e1801b&imgtype=0&src=http%3A%2F%2Fb.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F6f061d950a7b02087a5f2b8362d9f2d3572cc839.jpg'
+                    ]
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>
